@@ -86,7 +86,7 @@ class StreamMappingProvider: NSObject {
         
     class func createStreamRequestMapping() -> RKObjectMapping {
         let mapping = RKObjectMapping.request()
-        mapping?.addAttributeMappings(from: ["title", "lon", "lat", "city", "price"])
+        mapping?.addAttributeMappings(from: ["title", "lon", "lat", "city", "price", "videotype", "extras"])
         return mapping!
     }    
 }

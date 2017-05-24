@@ -102,26 +102,26 @@ class StreamConnector: Connector {
     manager?.addResponseDescriptor(responseDescriptor)
     
     manager?.getObjectsAtPath(path, parameters: self.sessionParams(), success: { (operation, mappingResult) -> Void in
-    // success code
-    let error:Error = self.findErrorObject(mappingResult: mappingResult!)!
-    if !error.status {
-    if error.code == Error.kLoginExpiredCode {
-    self.relogin({ () -> () in
-    self.recent(userId, success: success, failure: failure)
-    }, failure: { () -> () in
-    failure(error.toNSError())
-    })
-    } else {
-    failure(error.toNSError())
-    }
-    } else {
-    let streams = mappingResult?.dictionary()["data.recent"] as! [Stream]
-    success(streams)
-    }
-    }) { (operation, error) -> Void in
-    // failure code
-    failure(error! as NSError)
-    }
+        // success code
+        let error:Error = self.findErrorObject(mappingResult: mappingResult!)!
+        if !error.status {
+        if error.code == Error.kLoginExpiredCode {
+            self.relogin({ () -> () in
+                self.recent(userId, success: success, failure: failure)
+            }, failure: { () -> () in
+                failure(error.toNSError())
+            })
+        } else {
+            failure(error.toNSError())
+        }
+        } else {
+        let streams = mappingResult?.dictionary()["data.recent"] as! [Stream]
+            success(streams)
+        }
+        }) { (operation, error) -> Void in
+            // failure code
+            failure(error! as NSError)
+        }
     }
     
     func my(_ success: @escaping (_ streams: [Stream]) -> (), failure: @escaping (_ error: NSError) -> ()) {

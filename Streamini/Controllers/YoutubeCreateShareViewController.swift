@@ -14,6 +14,7 @@ class YoutubeCreateShareViewController: UIViewController {
     @IBOutlet weak var captionView: UITextField!
     @IBOutlet weak var playerView: YTPlayerView!
     @IBOutlet weak var publishButton: UIButton!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     var model:YoutubeModel?
     
@@ -30,16 +31,16 @@ class YoutubeCreateShareViewController: UIViewController {
     
 
     @IBAction func didTouchPublishButton(_ sender: Any) {
+        loadingIndicator.startAnimating()
         let data = NSMutableDictionary(objects: [captionView.text!], forKeys: ["title" as NSCopying])
         if let pm = LocationManager.shared.currentPlacemark {
             data["lon"]  = pm.location!.coordinate.longitude
             data["lat"]  = pm.location!.coordinate.latitude
             data["city"] = pm.locality
-            data["videotype"] = "youtube"
-            data["extras"] = "{\"videoId\":\"\(model?.videoId ?? "")\"}"
-            data["private"] = 0
         }
-        
+        data["videotype"] = "youtube"
+        data["extras"] = "{\"videoId\":\"\(model?.videoId ?? "")\"}"
+        data["private"] = 0
         StreamConnector().create(data, success: createStreamSuccess, failure: createStreamFailure)
     }
     
@@ -50,6 +51,8 @@ class YoutubeCreateShareViewController: UIViewController {
     }
     
     func createStreamSuccess(_ stream: Stream) {
+        loadingIndicator.stopAnimating()
+        
         LocationManager.shared.stopMonitoringLocation()
         let twitter = SocialToolFactory.getSocial("Twitter")!
         let url = "\(Config.shared.twitter().tweetURL)/\(stream.streamHash)/\(stream.id)"
@@ -59,6 +62,8 @@ class YoutubeCreateShareViewController: UIViewController {
     }
     
     func createStreamFailure(_ error: NSError) {
+        loadingIndicator.stopAnimating()
+        
         print("\(error.localizedDescription)")
     }
     

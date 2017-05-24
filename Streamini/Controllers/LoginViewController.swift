@@ -9,23 +9,28 @@
 import UIKit
 import TwitterKit
 
-
 class LoginViewController: BaseViewController {
     @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 
     func loginSuccess(_ session: String) {
+        loadingIndicator.stopAnimating()
         loginButton.isEnabled = true
         A0SimpleKeychain().setString(session, forKey: "PHPSESSID")
         self.performSegue(withIdentifier: "LoginToMain", sender: self)
     }
     
     func loginFailure(_ error: NSError) {
+        loadingIndicator.stopAnimating()
         loginButton.isEnabled = true
+        UIAlertView.notAuthorizedAlert(error.localizedDescription).show()
     }
     
     @IBAction func loginButtonPressed(_ sender: AnyObject) {
         loginButton.isEnabled = false
-        Twitter.sharedInstance().logIn(with: self, completion: { (session, error) -> Void in
+        loadingIndicator.startAnimating()
+        Twitter.sharedInstance().logIn(with: self, completion: { [unowned self] (session, error) in
+            self.loadingIndicator.stopAnimating()
             if error != nil {
                 UIAlertView.notAuthorizedAlert(NSLocalizedString("login_twitter_error", comment: "")).show()
                 self.loginButton.isEnabled = true
@@ -54,6 +59,7 @@ class LoginViewController: BaseViewController {
         }
         
         let connector = UserConnector()
+        loadingIndicator.startAnimating()
         connector.login(loginData, success: self.loginSuccess, failure: self.loginFailure)
     }
     

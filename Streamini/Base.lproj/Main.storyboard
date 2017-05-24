@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rS3-R9-Ivy">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="rS3-R9-Ivy">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -80,11 +80,16 @@
                                             <action selector="loginButtonPressed:" destination="XKn-a9-wk8" eventType="touchUpInside" id="ZKG-et-wN5"/>
                                         </connections>
                                     </button>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="CUw-1O-3gd">
+                                        <rect key="frame" x="169" y="199" width="37" height="37"/>
+                                    </activityIndicatorView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.0" green="0.4039215686" blue="0.69803921570000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="centerX" secondItem="lHK-qM-8Kf" secondAttribute="centerX" id="QK9-wF-aQF"/>
+                                    <constraint firstItem="CUw-1O-3gd" firstAttribute="top" secondItem="lHK-qM-8Kf" secondAttribute="bottom" constant="10.5" id="RjK-2w-VE1"/>
                                     <constraint firstAttribute="trailing" secondItem="lHK-qM-8Kf" secondAttribute="trailing" constant="16" id="VOk-D9-CCX"/>
+                                    <constraint firstItem="CUw-1O-3gd" firstAttribute="centerX" secondItem="lHK-qM-8Kf" secondAttribute="centerX" id="fNq-v1-Gq4"/>
                                     <constraint firstAttribute="centerY" secondItem="lHK-qM-8Kf" secondAttribute="centerY" id="mP5-0Z-qWg"/>
                                     <constraint firstItem="lHK-qM-8Kf" firstAttribute="leading" secondItem="G7R-lt-rIS" secondAttribute="leading" constant="16" id="w8e-q5-k9c"/>
                                 </constraints>
@@ -212,6 +217,7 @@
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
                     <navigationItem key="navigationItem" id="aLt-R4-f8O"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="CUw-1O-3gd" id="e6F-HB-uIx"/>
                         <outlet property="loginButton" destination="lHK-qM-8Kf" id="hbb-Wb-XlB"/>
                         <segue destination="i8i-d4-DIm" kind="show" identifier="LoginToMain" id="WuK-x0-VbG"/>
                     </connections>
@@ -3965,6 +3971,9 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ml5-bd-9eF">
+                                <rect key="frame" x="169" y="463" width="37" height="37"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -3975,8 +3984,10 @@
                             <constraint firstAttribute="trailing" secondItem="soG-jp-9iT" secondAttribute="trailing" constant="32" id="BGy-te-YOX"/>
                             <constraint firstItem="eeJ-of-lLH" firstAttribute="top" secondItem="hMC-nD-bOe" secondAttribute="bottom" constant="16" id="BrB-tu-8n7"/>
                             <constraint firstItem="C6V-5Z-fkV" firstAttribute="top" secondItem="hMC-nD-bOe" secondAttribute="bottom" constant="8" id="JKB-qa-g7C"/>
+                            <constraint firstItem="Ml5-bd-9eF" firstAttribute="top" secondItem="soG-jp-9iT" secondAttribute="bottom" constant="8" id="OWJ-4F-fzF"/>
                             <constraint firstItem="soG-jp-9iT" firstAttribute="leading" secondItem="Oup-Jb-CmN" secondAttribute="leading" constant="32" id="Of4-hp-PEd"/>
                             <constraint firstAttribute="trailing" secondItem="fTz-J0-YPz" secondAttribute="trailing" id="cEj-oH-EwO"/>
+                            <constraint firstItem="Ml5-bd-9eF" firstAttribute="centerX" secondItem="soG-jp-9iT" secondAttribute="centerX" id="cHq-l1-o2u"/>
                             <constraint firstAttribute="trailing" secondItem="eeJ-of-lLH" secondAttribute="trailing" constant="16" id="cb0-0G-cv1"/>
                             <constraint firstItem="fTz-J0-YPz" firstAttribute="top" secondItem="kHV-Bq-E6l" secondAttribute="bottom" constant="35" id="lPP-Tl-2AC"/>
                             <constraint firstItem="kHV-Bq-E6l" firstAttribute="trailing" secondItem="C6V-5Z-fkV" secondAttribute="trailing" id="ncq-pO-UjO"/>
@@ -3987,6 +3998,7 @@
                     <nil key="simulatedTopBarMetrics"/>
                     <connections>
                         <outlet property="captionView" destination="kHV-Bq-E6l" id="hpI-co-EGg"/>
+                        <outlet property="loadingIndicator" destination="Ml5-bd-9eF" id="s5F-a6-RVi"/>
                         <outlet property="playerView" destination="fTz-J0-YPz" id="fPB-64-g9C"/>
                         <outlet property="publishButton" destination="soG-jp-9iT" id="qqL-IS-RSo"/>
                         <outlet property="titleView" destination="C6V-5Z-fkV" id="LJD-hw-hfF"/>

@@ -109,5 +109,11 @@ extension UIAlertView {
         return alertView
     }
     
+    class func alert( _ message: String) ->UIAlertView {
+        let ok = NSLocalizedString("ok", comment: "")
+        let alertView = UIAlertView(title: nil, message: message, delegate: nil, cancelButtonTitle: ok)
+        return alertView
+    }
+    
 }
 
