@@ -129,6 +129,8 @@
 		B7EAD9501B4D1F100009C698 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EAD94F1B4D1F100009C698 /* LocationManager.swift */; };
 		B7EAD9531B4D72A40009C698 /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B7EAD9521B4D72A40009C698 /* QuickLook.framework */; };
 		B7EB82B71B6746500022C76A /* NotificationsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7EB82B61B6746500022C76A /* NotificationsDelegate.swift */; };
+		D848E8001ED5C835002F53E8 /* YoutubePlayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D848E7FE1ED5C835002F53E8 /* YoutubePlayerViewController.swift */; };
+		D848E8011ED5C835002F53E8 /* YoutubePlayerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D848E7FF1ED5C835002F53E8 /* YoutubePlayerViewController.xib */; };
 		D8824DF11EC3161400AA7B65 /* YoutubeSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8824DF01EC3161400AA7B65 /* YoutubeSearchViewController.swift */; };
 		D8824DFA1EC3289D00AA7B65 /* YoutubeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8824DF81EC3289D00AA7B65 /* YoutubeCell.swift */; };
 		D8824DFB1EC3289D00AA7B65 /* YoutubeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8824DF91EC3289D00AA7B65 /* YoutubeCell.xib */; };
@@ -277,6 +279,8 @@
 		B7EB82B61B6746500022C76A /* NotificationsDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsDelegate.swift; sourceTree = "<group>"; };
 		D5A070AE679BDDF748A1209B /* Pods-Streamini.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Streamini.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Streamini/Pods-Streamini.debug.xcconfig"; sourceTree = "<group>"; };
 		D82946711EC344560062461C /* Streamini-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Streamini-Bridging-Header.h"; sourceTree = "<group>"; };
+		D848E7FE1ED5C835002F53E8 /* YoutubePlayerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubePlayerViewController.swift; sourceTree = "<group>"; };
+		D848E7FF1ED5C835002F53E8 /* YoutubePlayerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YoutubePlayerViewController.xib; sourceTree = "<group>"; };
 		D8824DF01EC3161400AA7B65 /* YoutubeSearchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeSearchViewController.swift; sourceTree = "<group>"; };
 		D8824DF81EC3289D00AA7B65 /* YoutubeCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YoutubeCell.swift; sourceTree = "<group>"; };
 		D8824DF91EC3289D00AA7B65 /* YoutubeCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = YoutubeCell.xib; sourceTree = "<group>"; };
@@ -605,6 +609,8 @@
 				A6BBC1501D1D3D430084CAFA /* PurchaseViewController.swift */,
 				A6159D061D3D164100042644 /* PaypalViewController.swift */,
 				A60F85BC1DABD16A000844AF /* SearchViewController.swift */,
+				D848E7FE1ED5C835002F53E8 /* YoutubePlayerViewController.swift */,
+				D848E7FF1ED5C835002F53E8 /* YoutubePlayerViewController.xib */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -723,6 +729,7 @@
 				B72475891B4133F50080BE1B /* Localizable.strings in Resources */,
 				A6269D921D36373D00042D85 /* Default@2x.png in Resources */,
 				B7AA932B1B3172740005972E /* Main.storyboard in Resources */,
+				D848E8011ED5C835002F53E8 /* YoutubePlayerViewController.xib in Resources */,
 				B7AA93301B3172740005972E /* LaunchScreen.xib in Resources */,
 				A6269D911D36373D00042D85 /* Default-568h@2x.png in Resources */,
 				D8824DFB1EC3289D00AA7B65 /* YoutubeCell.xib in Resources */,
@@ -889,6 +896,7 @@
 				B7D6F0B11B37F16C0070C36A /* LoginViewController.swift in Sources */,
 				B71BA5DD1B84A9580055F427 /* BlockedDataSource.swift in Sources */,
 				B7D5EA921B564BAA003EE25D /* Message.swift in Sources */,
+				D848E8001ED5C835002F53E8 /* YoutubePlayerViewController.swift in Sources */,
 				B746FB121B5FC27900DE3534 /* FollowerCell.swift in Sources */,
 				B794ADA21B59560B0069C2A8 /* UIEdgeInsets.swift in Sources */,
 				D8824DF11EC3161400AA7B65 /* YoutubeSearchViewController.swift in Sources */,

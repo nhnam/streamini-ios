@@ -38,14 +38,9 @@ UITextViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         configureView()
-        
         LocationManager.shared.delegate = self
         LocationManager.shared.startMonitoringLocation()
-        
-//        nameTextView.becomeFirstResponder()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -57,7 +52,7 @@ UITextViewDelegate {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         camera.setup(previewView)
-        darkPreviewView.layer.addDarkGradientLayer()
+        // darkPreviewView.layer.addDarkGradientLayer()
     }
     
     override func viewWillDisappear(_ animated: Bool) {

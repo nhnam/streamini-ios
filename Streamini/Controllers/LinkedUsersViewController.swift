@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SwiftyJSON
 
 class LinkedUsersViewController: UIViewController, UserStatisticsDelegate, StreamSelecting {
     @IBOutlet weak var selectorView: SelectorView!
@@ -70,7 +71,13 @@ class LinkedUsersViewController: UIViewController, UserStatisticsDelegate, Strea
             }
         }
         else {
-            UIAlertView.alert("Youtube player comming soon").show()
+            let vc = YoutubePlayerViewController(nibName: "YoutubePlayerViewController", bundle: nil)
+            let extras:String = stream.extras
+            guard let json = JSONSerialization.jsonObject(with: extras.data(using: String.Encoding.utf8), options: JSONSerialization.ReadingOptions.allowFragments) else { return }
+            guard let videoId = json["videoId"] else { return }
+            self.present(vc, animated: true, completion: { 
+                vc.videoId = videoId
+            })
         }
     }
 
